@@ -1,0 +1,40 @@
+@import '../common';
+
+.content {
+  .title {
+    flex: 1 1 0%;
+    margin-left: 40px;
+    margin-top: -28px;
+  }
+
+  .time {
+    width: 53px;
+    margin: 0 8px;
+  }
+
+  .participants {
+    .participants-input {
+      input {
+        background: #fff;
+
+        &:hover, &:focus {
+          background: $gray-0;
+        }
+      }
+    }
+    width: 100%;
+    .list {
+      padding: 0.5rem 0;
+    }
+  }
+
+  .description-input {
+    resize: none;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $gray-2;
+    background: $gray-0;
+    padding: 4px 8px;
+  }
+}

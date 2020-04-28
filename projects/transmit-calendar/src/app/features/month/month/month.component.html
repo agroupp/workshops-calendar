@@ -1,0 +1,12 @@
+<section class="grid">
+  <div class="week-days-row">
+    <div class="cell" *ngFor="let day of weekDays; index as i" [ngClass]="{'accent-200-background': i === holiday}">
+      <span>{{day}}</span>
+    </div>
+  </div>
+  <div class="row" *ngFor="let week of weeks$ | async; index as weekIndex">
+    <div class="cell" *ngFor="let day of week; index as i">
+      <tr-cell [day]="day" [currentMonth]="currentMonth" [isHoliday]="i === holiday"></tr-cell>
+    </div>
+  </div>
+</section>

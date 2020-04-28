@@ -2,5 +2,132 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "transmit-calendar": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/transmit-calendar",
+      "sourceRoot": "projects/transmit-calendar/src",
+      "prefix": "tr",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/transmit-calendar",
+            "index": "projects/transmit-calendar/src/index.html",
+            "main": "projects/transmit-calendar/src/main.ts",
+            "polyfills": "projects/transmit-calendar/src/polyfills.ts",
+            "tsConfig": "projects/transmit-calendar/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/transmit-calendar/src/favicon.ico",
+              "projects/transmit-calendar/src/assets"
+            ],
+            "styles": [
+              "projects/transmit-calendar/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/transmit-calendar/src/environments/environment.ts",
+                  "with": "projects/transmit-calendar/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "transmit-calendar:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "transmit-calendar:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "transmit-calendar:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/transmit-calendar/src/test.ts",
+            "polyfills": "projects/transmit-calendar/src/polyfills.ts",
+            "tsConfig": "projects/transmit-calendar/tsconfig.spec.json",
+            "karmaConfig": "projects/transmit-calendar/karma.conf.js",
+            "assets": [
+              "projects/transmit-calendar/src/favicon.ico",
+              "projects/transmit-calendar/src/assets"
+            ],
+            "styles": [
+              "projects/transmit-calendar/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/transmit-calendar/tsconfig.app.json",
+              "projects/transmit-calendar/tsconfig.spec.json",
+              "projects/transmit-calendar/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/transmit-calendar/e2e/protractor.conf.js",
+            "devServerTarget": "transmit-calendar:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "transmit-calendar:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@ngrx/schematics",
+    "analytics": "78bdd0e4-a12e-4573-b7b9-864cd8411f3c"
+  },
+  "defaultProject": "transmit-calendar"
 }

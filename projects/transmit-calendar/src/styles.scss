@@ -1,0 +1,141 @@
+@import '~@angular/material/theming';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Icons&display=swap');
+@import './variables';
+
+$tr-palette: (
+    50 : #fdede5,
+    100 : #f9d2bd,
+    200 : #f5b591,
+    300 : #f19765,
+    400 : #ee8044,
+    500 : #eb6a23,
+    600 : #e9621f,
+    700 : #e5571a,
+    800 : #e24d15,
+    900 : #dd3c0c,
+    A100 : #ffffff,
+    A200 : #ffdcd4,
+    A400 : #ffb3a1,
+    A700 : #ff9e88,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$typography: mat-typography-config(
+  $font-family: 'Montserrat'
+);
+$mat-light-theme-background: (
+  status-bar: map_get($mat-grey, 300),
+  app-bar:    map_get($mat-grey, 100),
+  background: #f1f1d4,
+  hover:      rgba(black, 0.04), // TODO(kara): check style with Material Design UX
+  card:       white,
+  dialog:     white,
+  disabled-button: rgba(black, 0.12),
+  raised-button: white,
+  focused-button: $dark-focused,
+  selected-button: map_get($mat-grey, 300),
+  selected-disabled-button: map_get($mat-grey, 400),
+  disabled-button-toggle: map_get($mat-grey, 200),
+  unselected-chip: map_get($mat-grey, 300),
+  disabled-list-option: map_get($mat-grey, 200),
+  tooltip: map_get($mat-grey, 700),
+);
+@include mat-core($typography);
+
+$transmit-calendar-primary: mat-palette($mat-blue-gray);
+$transmit-calendar-accent: mat-palette($tr-palette);
+$transmit-calendar-warn: mat-palette($mat-red);
+$transmit-calendar-theme: mat-light-theme($transmit-calendar-primary, $transmit-calendar-accent, $transmit-calendar-warn);
+
+@include angular-material-theme($transmit-calendar-theme);
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Montserrat', "Helvetica Neue", sans-serif; }
+body, div, section, aside, form, input, .mat-card {
+  box-sizing: border-box;
+}
+h1, h2, h3, h4, p {
+  margin: 0;
+}
+a {
+  color: mat-color($transmit-calendar-primary);
+}
+input, textarea {font-family: 'Montserrat', "Helvetica Neue", sans-serif;}
+.spacer {
+  flex: 1 1 auto;
+}
+
+.primary-background {
+  background-color: mat-color($transmit-calendar-primary);
+  color: #fff!important;
+}
+
+.accent-background {
+  background-color: mat-color($transmit-calendar-accent, 500);
+}
+
+.accent-200-background {
+  background-color: mat-color($transmit-calendar-accent, A200);
+}
+
+.mat-button-wrapper {
+  line-height: 21px!important;
+}
+
+.tr-input-container {
+  position: relative;
+
+  input {
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $gray-2;
+    background: $gray-0;
+    padding: 4px 8px;
+    &:focus+.tr-input-underline {
+      transform: scale(1);
+    }
+  }
+
+  .tr-input-underline {
+    position: absolute;
+    left: 0;
+    height: 1px;
+    bottom: 1px;
+    width: 100%;
+    transform: scale(0, 1);
+    -webkit-transform: scale(0, 1);
+    transform-origin: center;
+    -webkit-transform-origin: center;
+    transition: 0.1s ease-in-out transform;
+    -webkit-transition: 0.1s ease-in-out transform;
+  }
+}
+
+.list-bullet-primary {
+  list-style: none;
+
+  & li::before {
+    content: "\2022";
+    color: mat-color($transmit-calendar-primary);
+    font-weight: 600;
+    display: inline-block;
+    width: 0.5rem;
+  }
+}

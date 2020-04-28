@@ -1,0 +1,41 @@
+@import '../../../../variables';
+
+p {
+  margin: 0;
+}
+
+header {
+  position: relative;
+  height: 24px;
+}
+.dialog-controls {
+  position: absolute;
+  right: -0.5rem;
+  top: -1rem;
+}
+
+.content {
+  .row {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    font-size: 14px;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    .row-icons {
+      color: $gray-2;
+      margin-right: 1rem;
+    }
+  }
+  .participants-row, .description-row {
+    align-items: flex-start;
+  }
+}
+
+
+
+.mat-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+}
