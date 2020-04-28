@@ -15,10 +15,13 @@ import { ViewEventComponent } from './view-event/view-event.component';
 import { ParticipantItemComponent } from './participant-item/participant-item.component';
 import { EventsListComponent } from './events-list/events-list.component';
 
-
-
 @NgModule({
-  declarations: [AddEventComponent, ViewEventComponent, ParticipantItemComponent, EventsListComponent],
+  declarations: [
+    AddEventComponent,
+    ViewEventComponent,
+    ParticipantItemComponent,
+    EventsListComponent,
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -29,13 +32,9 @@ import { EventsListComponent } from './events-list/events-list.component';
     MatInputModule,
     MatTooltipModule,
     MatAutocompleteModule,
-    MatListModule
+    MatListModule,
   ],
-  exports: [
-    MatDialogModule,
-    AddEventComponent,
-    ViewEventComponent
-  ],
-  entryComponents: [AddEventComponent, ViewEventComponent]
+  exports: [MatDialogModule, AddEventComponent, ViewEventComponent],
+  entryComponents: [AddEventComponent, ViewEventComponent],
 })
-export class DialogsModule { }
+export class DialogsModule {}

@@ -5,7 +5,7 @@ import {
   createSelector,
   MetaReducer,
   createReducer,
-  on
+  on,
 } from '@ngrx/store';
 import { environment } from '../../../../environments/environment';
 import * as monthActions from './month.actions';
@@ -19,12 +19,17 @@ export interface MonthState {
 }
 
 export const initialState: MonthState = {
-  current: new Date(Date.UTC(new Date().getUTCFullYear(), new Date().getUTCMonth(), 1))
+  current: new Date(
+    Date.UTC(new Date().getUTCFullYear(), new Date().getUTCMonth(), 1)
+  ),
 };
 
 export const reducers = createReducer(
   initialState,
-  on(monthActions.setCurrentMonth, (state, action) => ({...state, current: action.currentMonth}))
+  on(monthActions.setCurrentMonth, (state, action) => ({
+    ...state,
+    current: action.currentMonth,
+  }))
 );
 
 export const selectMonthFeature = createFeatureSelector(monthStateFeatureKey);
@@ -32,4 +37,6 @@ export const selectCurrentMonth = core.selectCurrentMonth;
 export const selectCurrentEvents = rootEventsSelectors.selectCurrentEvents;
 // export const selectEventsOnDate = rootEventsSelectors.selectEventsOnDate;
 
-export const metaReducers: MetaReducer<MonthState>[] = !environment.production ? [] : [];
+export const metaReducers: MetaReducer<MonthState>[] = !environment.production
+  ? []
+  : [];

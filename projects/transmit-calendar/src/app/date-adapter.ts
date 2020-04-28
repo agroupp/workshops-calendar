@@ -5,7 +5,15 @@ export interface ITime {
   m: number;
 }
 
-export const WEEK_DAYS: string[] = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+export const WEEK_DAYS: string[] = [
+  'Sun',
+  'Mon',
+  'Tue',
+  'Wed',
+  'Thu',
+  'Fri',
+  'Sat',
+];
 
 export class DateAdapter {
   public static generateWeeks(start: Date): Date[][] {
@@ -18,7 +26,7 @@ export class DateAdapter {
       let currentWeek: Date[] = [];
       for (let i = 0; i < DAYS_PER_WEEK; i++) {
         if (current.getDate() === 1 && current.getDay() > i) {
-          currentWeek.push(this.addDays(current, (-1) * (current.getDay() - i)));
+          currentWeek.push(this.addDays(current, -1 * (current.getDay() - i)));
         } else {
           currentWeek.push(current);
           current = this.addDays(current, 1);
@@ -68,9 +76,12 @@ export class DateAdapter {
 
   public static afterTimes(startPoint: ITime, times: string[]) {
     let result: string[] = times.slice(0);
-    result = result.filter(t => {
+    result = result.filter((t) => {
       const parsedTime = this.parseStringTime(t);
-      return parsedTime.h > startPoint.h || (parsedTime.h === startPoint.h && parsedTime.m > startPoint.m);
+      return (
+        parsedTime.h > startPoint.h ||
+        (parsedTime.h === startPoint.h && parsedTime.m > startPoint.m)
+      );
     });
     return result;
   }
@@ -80,24 +91,28 @@ export class DateAdapter {
     if (!time) {
       return null;
     }
-    return this.timeToString({h: time.h + hrs, m: time.m});
+    return this.timeToString({ h: time.h + hrs, m: time.m });
   }
 
   public static isEqualDay(date1: Date, date2: Date): boolean {
     if (!date1 || !date2) {
       return false;
     }
-    return date1.getFullYear() === date2.getFullYear() &&
+    return (
+      date1.getFullYear() === date2.getFullYear() &&
       date1.getMonth() === date2.getMonth() &&
-      date1.getDate() === date2.getDate();
+      date1.getDate() === date2.getDate()
+    );
   }
 
   public static isLessDay(date1: Date, date2: Date): boolean {
     if (!date1 || !date2) {
       return false;
     }
-    return date1.getFullYear() === date2.getFullYear() &&
+    return (
+      date1.getFullYear() === date2.getFullYear() &&
       date1.getMonth() === date2.getMonth() &&
-      date1.getDate() < date2.getDate();
+      date1.getDate() < date2.getDate()
+    );
   }
 }

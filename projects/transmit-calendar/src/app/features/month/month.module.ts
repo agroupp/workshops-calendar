@@ -16,8 +16,8 @@ const monthNow = new Date().getUTCMonth() + 1;
 const yearNow = new Date().getUTCFullYear();
 
 const routes: Routes = [
-  {path: ':year/:month', component: MonthComponent},
-  {path: '', redirectTo: `${yearNow}/${monthNow}`, pathMatch: 'full'}
+  { path: ':year/:month', component: MonthComponent },
+  { path: '', redirectTo: `${yearNow}/${monthNow}`, pathMatch: 'full' },
 ];
 
 @NgModule({
@@ -29,7 +29,11 @@ const routes: Routes = [
     MatSnackBarModule,
     DialogsModule,
     RouterModule.forChild(routes),
-    StoreModule.forFeature(fromMonthState.monthStateFeatureKey, fromMonthState.reducers, { metaReducers: fromMonthState.metaReducers })
-  ]
+    StoreModule.forFeature(
+      fromMonthState.monthStateFeatureKey,
+      fromMonthState.reducers,
+      { metaReducers: fromMonthState.metaReducers }
+    ),
+  ],
 })
-export class MonthModule { }
+export class MonthModule {}

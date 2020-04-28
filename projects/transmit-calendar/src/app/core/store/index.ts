@@ -3,7 +3,7 @@ import {
   ActionReducerMap,
   createFeatureSelector,
   createSelector,
-  MetaReducer
+  MetaReducer,
 } from '@ngrx/store';
 import { environment } from '../../../environments/environment';
 import * as root from '../../reducers';
@@ -11,13 +11,9 @@ import { Params } from '@angular/router';
 
 export const coreStateFeatureKey = 'coreState';
 
-export interface CoreState {
+export interface CoreState {}
 
-}
-
-export const reducers: ActionReducerMap<CoreState> = {
-
-};
+export const reducers: ActionReducerMap<CoreState> = {};
 
 export const selectCurrentMonth = createSelector(
   root.selectRouteParams,
@@ -31,4 +27,6 @@ export const selectCurrentMonth = createSelector(
   }
 );
 
-export const metaReducers: MetaReducer<CoreState>[] = !environment.production ? [] : [];
+export const metaReducers: MetaReducer<CoreState>[] = !environment.production
+  ? []
+  : [];

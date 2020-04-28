@@ -8,43 +8,76 @@
 <mat-dialog-content class="content" cdkTrapFocus>
   <div class="row">
     <mat-form-field appearance="standard" class="title" floatLabel="never">
-      <input type="text" matInput placeholder="Add title" [formControl]="titleCtrl" cdkFocusInitial />
+      <input
+        type="text"
+        matInput
+        placeholder="Add title"
+        [formControl]="titleCtrl"
+        cdkFocusInitial
+      />
     </mat-form-field>
   </div>
   <div class="row">
     <mat-icon class="row-icons">access_time</mat-icon>
     <span>{{ data.date | date }}</span>
     <div class="tr-input-container time">
-      <input type="text" [matAutocomplete]="startTimeAuto" [formControl]="startTimeCtrl" >
+      <input
+        type="text"
+        [matAutocomplete]="startTimeAuto"
+        [formControl]="startTimeCtrl"
+      />
       <div class="tr-input-underline primary-background"></div>
     </div>
     <mat-autocomplete #startTimeAuto>
-      <mat-option *ngFor="let time of filteredStartTimes" [value]="time">{{time}}</mat-option>
+      <mat-option *ngFor="let time of filteredStartTimes" [value]="time">{{
+        time
+      }}</mat-option>
     </mat-autocomplete>
     <span> - </span>
     <div class="tr-input-container time">
-      <input type="text" [matAutocomplete]="endTimeAuto" [formControl]="endTimeCtrl">
+      <input
+        type="text"
+        [matAutocomplete]="endTimeAuto"
+        [formControl]="endTimeCtrl"
+      />
       <div class="tr-input-underline primary-background"></div>
     </div>
     <mat-autocomplete #endTimeAuto>
-      <mat-option *ngFor="let time of filteredEndTimes" [value]="time">{{time}}</mat-option>
+      <mat-option *ngFor="let time of filteredEndTimes" [value]="time">{{
+        time
+      }}</mat-option>
     </mat-autocomplete>
   </div>
   <div class="row participants-row">
     <mat-icon class="row-icons">people_outline</mat-icon>
     <div class="participants">
       <div class="tr-input-container participants-input">
-        <input type="text" placeholder="Add participants" (blur)="addParticipant()" (keypress)="addParticipantEnterPressed($event)" [formControl]="addParticipantCtrl">
+        <input
+          type="text"
+          placeholder="Add participants"
+          (blur)="addParticipant()"
+          (keypress)="addParticipantEnterPressed($event)"
+          [formControl]="addParticipantCtrl"
+        />
         <div class="tr-input-underline primary-background"></div>
       </div>
       <div class="list">
-        <tr-participant-item *ngFor="let p of event.participants" [participant]="p" (remove)="removePartcipant(p)"></tr-participant-item>
+        <tr-participant-item
+          *ngFor="let p of event.participants"
+          [participant]="p"
+          (remove)="removePartcipant(p)"
+        ></tr-participant-item>
       </div>
     </div>
   </div>
   <div class="row description-row">
     <mat-icon class="row-icons">short_text</mat-icon>
-    <textarea rows="4" [formControl]="descriptionCtrl" class="description-input" placeholder="Add description"></textarea>
+    <textarea
+      rows="4"
+      [formControl]="descriptionCtrl"
+      class="description-input"
+      placeholder="Add description"
+    ></textarea>
   </div>
 </mat-dialog-content>
 <mat-dialog-actions>

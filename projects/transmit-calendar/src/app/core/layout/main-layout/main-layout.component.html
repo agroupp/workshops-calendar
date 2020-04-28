@@ -5,19 +5,38 @@
       <span class="brand">Transmit Calendar</span>
     </div>
     <div class="controls">
-      <button mat-stroked-button color="primary" class="today-button" matTooltip="{{ today | date }}" (click)="onTodayClick()">
+      <button
+        mat-stroked-button
+        color="primary"
+        class="today-button"
+        matTooltip="{{ today | date }}"
+        (click)="onTodayClick()"
+      >
         Today
       </button>
-      <button mat-icon-button matTooltip="Previous month" (click)="onPrevMonthClick()" [disabled]="!currentMonth">
+      <button
+        mat-icon-button
+        matTooltip="Previous month"
+        (click)="onPrevMonthClick()"
+        [disabled]="!currentMonth"
+      >
         <mat-icon>keyboard_arrow_left</mat-icon>
       </button>
-      <button mat-icon-button matTooltip="Next month" (click)="onNextMonthClick()" [disabled]="!currentMonth">
+      <button
+        mat-icon-button
+        matTooltip="Next month"
+        (click)="onNextMonthClick()"
+        [disabled]="!currentMonth"
+      >
         <mat-icon>keyboard_arrow_right</mat-icon>
       </button>
     </div>
-    <div class="month-year" *ngIf="current$ | async as current; else loadingMonthYear">
-      <span class="month">{{ current | date:'MMMM' }}</span>
-      <span>{{ current | date:'yyyy' }}</span>
+    <div
+      class="month-year"
+      *ngIf="current$ | async as current; else loadingMonthYear"
+    >
+      <span class="month">{{ current | date: 'MMMM' }}</span>
+      <span>{{ current | date: 'yyyy' }}</span>
     </div>
     <ng-template #loadingMonthYear>
       <div class="month-year"></div>

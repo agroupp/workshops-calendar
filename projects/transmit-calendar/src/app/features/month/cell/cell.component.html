@@ -1,25 +1,41 @@
-<div class="wrapper" (mouseover)="isHover = true" (mouseleave)="isHover = false" #wrapper
-  [ngStyle]="{'maxHeight': cellHeightString}" [ngClass]="{'accent-200-background': isHoliday}">
-  <section class="date" [ngClass]="{'not-current-month': day.date.getMonth() !== currentMonth }">
-    <button mat-icon-button [ngClass]="{'primary-background' : isToday}">
-      <span>{{ day.date | date:'d'}}</span>
-      <span *ngIf="day.date.getDate() === 1">{{ day.date |date:'MMM'}}</span>
+<div
+  class="wrapper"
+  (mouseover)="isHover = true"
+  (mouseleave)="isHover = false"
+  #wrapper
+  [ngStyle]="{ maxHeight: cellHeightString }"
+  [ngClass]="{ 'accent-200-background': isHoliday }"
+>
+  <section
+    class="date"
+    [ngClass]="{ 'not-current-month': day.date.getMonth() !== currentMonth }"
+  >
+    <button mat-icon-button [ngClass]="{ 'primary-background': isToday }">
+      <span>{{ day.date | date: 'd' }}</span>
+      <span *ngIf="day.date.getDate() === 1">{{ day.date | date: 'MMM' }}</span>
     </button>
   </section>
   <section class="events" #eventsSection>
     <ul>
-      <li *ngFor="let event of day.events; index as i" (click)="viewEvent(event)">
+      <li
+        *ngFor="let event of day.events; index as i"
+        (click)="viewEvent(event)"
+      >
         <ng-container *ngIf="i < 2">
-          <span [ngClass]="{'bullet primary-background': true}"></span>
+          <span [ngClass]="{ 'bullet primary-background': true }"></span>
           <span class="time">
-            {{ event.dateStart | date:'HH:mm' }}
+            {{ event.dateStart | date: 'HH:mm' }}
           </span>
-          <p class="title">{{event.title}}</p>
+          <p class="title">{{ event.title }}</p>
         </ng-container>
         <div class="overlay" *ngIf="isPast"></div>
       </li>
     </ul>
-    <div *ngIf="day.events.length > 3"  class="hidden-events-list" (click)="showEventsListDialog()">
+    <div
+      *ngIf="day.events.length > 3"
+      class="hidden-events-list"
+      (click)="showEventsListDialog()"
+    >
       {{ day.events.length - 2 }} more...
     </div>
   </section>

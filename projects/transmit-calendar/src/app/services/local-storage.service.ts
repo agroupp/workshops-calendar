@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LocalStorageService {
-
-  constructor() { }
+  constructor() {}
 
   getItem(key: string): string {
     return this.isLocalStorage() ? localStorage.getItem(key) : undefined;
   }
 
   setItem(key: string, value: string | object): void {
-    const stringValue = typeof value === 'object' ? JSON.stringify(value) : value;
+    const stringValue =
+      typeof value === 'object' ? JSON.stringify(value) : value;
     if (this.isLocalStorage()) {
       localStorage.setItem(key, stringValue);
     }
@@ -43,7 +43,7 @@ export class LocalStorageService {
     }
     try {
       const collection = this.collectionGet<T>(key) || [];
-      const isExists = collection.filter(c => c === value);
+      const isExists = collection.filter((c) => c === value);
       if (isExists.length > 0) {
         throw new Error('item already exists');
       }
@@ -56,6 +56,11 @@ export class LocalStorageService {
   }
 
   private isLocalStorage() {
-    return typeof window !== 'undefined' && window && typeof window.localStorage !== 'undefined' && localStorage;
+    return (
+      typeof window !== 'undefined' &&
+      window &&
+      typeof window.localStorage !== 'undefined' &&
+      localStorage
+    );
   }
 }

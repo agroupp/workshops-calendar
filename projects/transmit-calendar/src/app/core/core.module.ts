@@ -10,8 +10,6 @@ import { MainLayoutComponent } from './layout/main-layout/main-layout.component'
 import { StoreModule } from '@ngrx/store';
 import * as fromCoreState from './store';
 
-
-
 @NgModule({
   declarations: [MainLayoutComponent],
   imports: [
@@ -21,10 +19,12 @@ import * as fromCoreState from './store';
     MatButtonModule,
     MatIconModule,
     MatTooltipModule,
-    StoreModule.forFeature(fromCoreState.coreStateFeatureKey, fromCoreState.reducers, { metaReducers: fromCoreState.metaReducers })
+    StoreModule.forFeature(
+      fromCoreState.coreStateFeatureKey,
+      fromCoreState.reducers,
+      { metaReducers: fromCoreState.metaReducers }
+    ),
   ],
-  exports: [
-    MainLayoutComponent
-  ]
+  exports: [MainLayoutComponent],
 })
-export class CoreModule { }
+export class CoreModule {}

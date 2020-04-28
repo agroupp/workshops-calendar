@@ -4,17 +4,17 @@
       <mat-icon>close</mat-icon>
     </button>
   </div>
-  <p class="week-day">{{ day.date | date:'EEE' }}</p>
-  <p class="day">{{ day.date | date:'d' }}</p>
+  <p class="week-day">{{ day.date | date: 'EEE' }}</p>
+  <p class="day">{{ day.date | date: 'd' }}</p>
 </header>
 <mat-dialog-content class="content">
   <ul class="events">
     <li *ngFor="let event of day.events" [mat-dialog-close]="event">
-      <span [ngClass]="{'bullet primary-background': true}"></span>
+      <span [ngClass]="{ 'bullet primary-background': true }"></span>
       <span class="time">
-        {{ event.dateStart | date:'HH:mm' }}
+        {{ event.dateStart | date: 'HH:mm' }}
       </span>
-      <p class="title">{{event.title}}</p>
+      <p class="title">{{ event.title }}</p>
     </li>
   </ul>
 </mat-dialog-content>

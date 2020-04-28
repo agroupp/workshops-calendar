@@ -17,7 +17,8 @@
       input {
         background: #fff;
 
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
           background: $gray-0;
         }
       }

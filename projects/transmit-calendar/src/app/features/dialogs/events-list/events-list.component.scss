@@ -33,23 +33,23 @@ header {
       overflow: hidden;
 
       .bullet {
-          display: block;
-          width: 7px;
-          height: 7px;
-          margin-right: 0.3rem;
-          border-radius: 50%;
+        display: block;
+        width: 7px;
+        height: 7px;
+        margin-right: 0.3rem;
+        border-radius: 50%;
       }
       .time {
-          min-width: 40px;
-          max-width: 40px;
-          margin-right: 0.5rem;
-          text-align: right;
+        min-width: 40px;
+        max-width: 40px;
+        margin-right: 0.5rem;
+        text-align: right;
       }
       .title {
-          flex: 1 1 0%;
-          font-weight: 600;
-          margin: 0;
-          @include ellipsis;
+        flex: 1 1 0%;
+        font-weight: 600;
+        margin: 0;
+        @include ellipsis;
       }
 
       &:hover {

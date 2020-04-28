@@ -25,7 +25,11 @@
   <div class="row participants-row">
     <mat-icon class="row-icons">people_outline</mat-icon>
     <div class="participants">
-      <tr-participant-item [showDelete]="false" [participant]="participant" *ngFor="let participant of data.participants"></tr-participant-item>
+      <tr-participant-item
+        [showDelete]="false"
+        [participant]="participant"
+        *ngFor="let participant of data.participants"
+      ></tr-participant-item>
     </div>
   </div>
   <div class="row description-row">
@@ -34,5 +38,7 @@
   </div>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-flat-button color="primary" mat-dialog-close cdkFocusInitial>Done</button>
+  <button mat-flat-button color="primary" mat-dialog-close cdkFocusInitial>
+    Done
+  </button>
 </mat-dialog-actions>

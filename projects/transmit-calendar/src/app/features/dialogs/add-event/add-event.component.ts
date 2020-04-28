@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { DateAdapter, ITime } from '../../../date-adapter';
 import { IEvent, IParticipant } from '../../../data';
 import { map, distinctUntilChanged } from 'rxjs/operators';
@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'tr-add-event',
   templateUrl: './add-event.component.html',
-  styleUrls: ['./add-event.component.scss']
+  styleUrls: ['./add-event.component.scss'],
 })
 export class AddEventComponent implements OnInit, OnDestroy {
   event: IEvent;
@@ -29,22 +29,31 @@ export class AddEventComponent implements OnInit, OnDestroy {
   endTimeCtrlSubscription: Subscription;
   descriptionCtrlSubscription: Subscription;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: {date: Date}, private dialogRef: MatDialogRef<AddEventComponent>) { }
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: { date: Date },
+    private dialogRef: MatDialogRef<AddEventComponent>
+  ) {}
 
   ngOnInit(): void {
     const startTimeCtrlValueChanged$ = this.startTimeCtrl.valueChanges.pipe(
-      map(value => value.replace(/\s/g, '')),
+      map((value) => value.replace(/\s/g, '')),
       distinctUntilChanged()
     );
-    this.startTimeCtrlSubscription = startTimeCtrlValueChanged$.subscribe(value => this.onStartTimeChanged(value));
+    this.startTimeCtrlSubscription = startTimeCtrlValueChanged$.subscribe(
+      (value) => this.onStartTimeChanged(value)
+    );
 
     const endTimeCtrlValueChanged$ = this.endTimeCtrl.valueChanges.pipe(
-      map(value => value.replace(/\s/g, '')),
+      map((value) => value.replace(/\s/g, '')),
       distinctUntilChanged()
     );
-    this.endTimeCtrlSubscription = endTimeCtrlValueChanged$.subscribe(value => this.onEndTimeChanged(value));
+    this.endTimeCtrlSubscription = endTimeCtrlValueChanged$.subscribe((value) =>
+      this.onEndTimeChanged(value)
+    );
 
-    this.descriptionCtrlSubscription = this.descriptionCtrl.valueChanges.subscribe(value => this.event.description = value);
+    this.descriptionCtrlSubscription = this.descriptionCtrl.valueChanges.subscribe(
+      (value) => (this.event.description = value)
+    );
 
     this.init();
     this.startTimeCtrl.setValue(this.filteredStartTimes[0]);
@@ -55,12 +64,16 @@ export class AddEventComponent implements OnInit, OnDestroy {
     if (!splitted) {
       return;
     }
-    this.filteredStartTimes = this.times.filter(t => DateAdapter.parseStringTime(t).h === +splitted[0]);
+    this.filteredStartTimes = this.times.filter(
+      (t) => DateAdapter.parseStringTime(t).h === +splitted[0]
+    );
     const time = DateAdapter.parseStringTime(value);
     if (!time) {
       return;
     }
-    this.endTimeCtrl.setValue(DateAdapter.timeToString({h: time.h + 1, m: time.m}));
+    this.endTimeCtrl.setValue(
+      DateAdapter.timeToString({ h: time.h + 1, m: time.m })
+    );
     this.setEventStartTime(time);
   }
 
@@ -69,7 +82,9 @@ export class AddEventComponent implements OnInit, OnDestroy {
     if (!splitted) {
       return;
     }
-    this.filteredEndTimes = this.times.filter(t => DateAdapter.parseStringTime(t).h === +splitted[0]);
+    this.filteredEndTimes = this.times.filter(
+      (t) => DateAdapter.parseStringTime(t).h === +splitted[0]
+    );
     const time = DateAdapter.parseStringTime(value);
     this.setEventEndTime(time);
   }
@@ -80,10 +95,10 @@ export class AddEventComponent implements OnInit, OnDestroy {
       return;
     }
     value = value.trim();
-    if (this.isParticipantInList({name: value})) {
+    if (this.isParticipantInList({ name: value })) {
       return;
     }
-    this.event.participants.push({name: value});
+    this.event.participants.push({ name: value });
     this.addParticipantCtrl.setValue('');
   }
 
@@ -95,7 +110,9 @@ export class AddEventComponent implements OnInit, OnDestroy {
   }
 
   private isParticipantInList(participant: IParticipant): boolean {
-    const check = this.event.participants.filter(p => p.name === participant.name);
+    const check = this.event.participants.filter(
+      (p) => p.name === participant.name
+    );
     return check.length > 0;
   }
 
@@ -103,7 +120,9 @@ export class AddEventComponent implements OnInit, OnDestroy {
     if (!this.isParticipantInList(participant)) {
       return;
     }
-    this.event.participants = this.event.participants.filter(p => p.name !== participant.name);
+    this.event.participants = this.event.participants.filter(
+      (p) => p.name !== participant.name
+    );
   }
 
   private splitControlTimeValue(value: string): string[] {
@@ -138,12 +157,20 @@ export class AddEventComponent implements OnInit, OnDestroy {
     const now = new Date();
     this.times = DateAdapter.generateStingTimes();
     this.isToday = this.data?.date.getDate() === now.getDate();
-    this.filteredStartTimes = this.isToday ?
-      DateAdapter.afterTimes({h: now.getHours(), m: now.getMinutes()}, this.times) :
-      DateAdapter.afterTimes({h: 8, m: 59}, this.times);
-    const initialStartTime = DateAdapter.parseStringTime(this.filteredStartTimes[0]);
+    this.filteredStartTimes = this.isToday
+      ? DateAdapter.afterTimes(
+          { h: now.getHours(), m: now.getMinutes() },
+          this.times
+        )
+      : DateAdapter.afterTimes({ h: 8, m: 59 }, this.times);
+    const initialStartTime = DateAdapter.parseStringTime(
+      this.filteredStartTimes[0]
+    );
     const initialHrs = initialStartTime.h;
-    this.filteredEndTimes = DateAdapter.afterTimes({h: initialHrs + 1, m: initialStartTime.m}, this.times);
+    this.filteredEndTimes = DateAdapter.afterTimes(
+      { h: initialHrs + 1, m: initialStartTime.m },
+      this.times
+    );
 
     this.event = {
       id: undefined,
@@ -151,10 +178,10 @@ export class AddEventComponent implements OnInit, OnDestroy {
       dateEnd: new Date(this.data.date.valueOf()),
       title: '',
       description: '',
-      participants: []
+      participants: [],
     };
     this.setEventStartTime(initialStartTime);
-    this.setEventEndTime({h: initialHrs + 1, m: initialStartTime.m});
+    this.setEventEndTime({ h: initialHrs + 1, m: initialStartTime.m });
   }
 
   save() {
