@@ -88,7 +88,10 @@ export class CellComponent implements OnInit, OnChanges {
     });
   }
 
-  viewEvent(event: IEvent) {
+  viewEvent(event: IEvent): void {
+    if (!event) {
+      return;
+    }
     const dialogRef = this.dialog.open(ViewEventComponent, {
       width: `${this.dialogWidth}px`,
       minHeight: `${this.dialogHeight}px`,
