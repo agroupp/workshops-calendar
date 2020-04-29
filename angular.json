@@ -122,6 +122,12 @@
             }
           }
         }
+      },
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "es": "projects/transmit-calendar/src/locale/messages.es.xlf"
+        }
       }
     }
   },

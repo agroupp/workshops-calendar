@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="todayButton" datatype="html">
+        <source>
+        Today
+      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/layout/main-layout/main-layout.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <note priority="1" from="description">Today button</note>
+        <note priority="1" from="meaning">main layout</note>
+      </trans-unit>
+      <trans-unit id="PreviousMonthButton" datatype="html">
+        <source>Previous month</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/layout/main-layout/main-layout.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <note priority="1" from="description">Previous month button</note>
+        <note priority="1" from="meaning">main layout</note>
+      </trans-unit>
+      <trans-unit id="NextMonthButton" datatype="html">
+        <source>Next month</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/layout/main-layout/main-layout.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <note priority="1" from="description">Next month button</note>
+        <note priority="1" from="meaning">main layout</note>
+      </trans-unit>
+      <trans-unit id="AddEventDialogClose" datatype="html">
+        <source>close</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dialogs/add-event/add-event.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">Close</note>
+        <note priority="1" from="meaning">Add Event Dialog</note>
+      </trans-unit>
+      <trans-unit id="AddEventDialogAddTitle" datatype="html">
+        <source>Add title</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dialogs/add-event/add-event.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">AddTitle</note>
+        <note priority="1" from="meaning">Add Event Dialog</note>
+      </trans-unit>
+      <trans-unit id="AddEventDialogAddParticipants" datatype="html">
+        <source>Add participants</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dialogs/add-event/add-event.component.html</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+        <note priority="1" from="description">AddParticipants</note>
+        <note priority="1" from="meaning">Add Event Dialog</note>
+      </trans-unit>
+      <trans-unit id="AddEventDialogAddDescription" datatype="html">
+        <source>Add description</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dialogs/add-event/add-event.component.html</context>
+          <context context-type="linenumber">81</context>
+        </context-group>
+        <note priority="1" from="description">AddDescription</note>
+        <note priority="1" from="meaning">Add Event Dialog</note>
+      </trans-unit>
+      <trans-unit id="AddEventDialogSave" datatype="html">
+        <source>Save</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dialogs/add-event/add-event.component.html</context>
+          <context context-type="linenumber">87</context>
+        </context-group>
+        <note priority="1" from="description">Save</note>
+        <note priority="1" from="meaning">Add Event Dialog</note>
+      </trans-unit>
+      <trans-unit id="ViewEventDialogRemove" datatype="html">
+        <source>remove event</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dialogs/view-event/view-event.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">Remove</note>
+        <note priority="1" from="meaning">View Event Dialog</note>
+      </trans-unit>
+      <trans-unit id="ViewEventDialogClose" datatype="html">
+        <source>close</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dialogs/view-event/view-event.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">Close</note>
+        <note priority="1" from="meaning">View Event Dialog</note>
+      </trans-unit>
+      <trans-unit id="ViewEventDialogDone" datatype="html">
+        <source>
+    Done
+  </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dialogs/view-event/view-event.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+        <note priority="1" from="description">Done</note>
+        <note priority="1" from="meaning">View Event Dialog</note>
+      </trans-unit>
+      <trans-unit id="ParticipantItemRemove" datatype="html">
+        <source>Remove</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dialogs/participant-item/participant-item.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <note priority="1" from="description">Remove</note>
+        <note priority="1" from="meaning">Participant Item</note>
+      </trans-unit>
+      <trans-unit id="ListEventDialogClose" datatype="html">
+        <source>close</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dialogs/events-list/events-list.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">Close</note>
+        <note priority="1" from="meaning">List Event Dialog</note>
+      </trans-unit>
+      <trans-unit id="MoreThreeDots" datatype="html">
+        <source>more...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/month/cell/cell.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+        <note priority="1" from="description">More...</note>
+        <note priority="1" from="meaning">Cell Component</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

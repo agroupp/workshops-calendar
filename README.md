@@ -18,3 +18,11 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
+## Run Spanish version
+````
+$ npm run build
+$ http-server -p 8080 -c-1 ./dist/transmit-calendar/
+````
+
+In browser `http://localhost:8080/es/index.html`
+

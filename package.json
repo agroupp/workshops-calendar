@@ -4,13 +4,14 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod --localize",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "format:test": "prettier \"projects/**/*.{ts,html,md,scss,json}\" --list-different",
     "format:write": "prettier \"projects/**/*.{ts,html,md,scss,json}\" --write",
-    "analyze": "ng build --prod --stats-json && webpack-bundle-analyzer ./dist/transmit-calendar/stats-es2015.json"
+    "analyze": "ng build --prod --stats-json && webpack-bundle-analyzer ./dist/transmit-calendar/stats-es2015.json",
+    "create-translation-src": "ng xi18n --output-path src/locale"
   },
   "private": true,
   "dependencies": {
