@@ -1,14 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import {
-  routerNavigatedAction,
-  RouterNavigatedPayload,
-} from '@ngrx/router-store';
+import { routerNavigatedAction } from '@ngrx/router-store';
 import { ActivatedRouteSnapshot, Params } from '@angular/router';
-import { EventsService } from './services';
 import { mergeMap, map, filter, catchError } from 'rxjs/operators';
 import { of, EMPTY } from 'rxjs';
 import * as fromEventsActions from './reducers/events.actions';
+import { EventsService } from './services';
 
 @Injectable()
 export class EventsEffects {

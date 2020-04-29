@@ -5,16 +5,6 @@ export interface ITime {
   m: number;
 }
 
-export const WEEK_DAYS: string[] = [
-  'Sun',
-  'Mon',
-  'Tue',
-  'Wed',
-  'Thu',
-  'Fri',
-  'Sat',
-];
-
 export class DateAdapter {
   public static generateWeeks(start: Date): Date[][] {
     if (!start) {

@@ -1,28 +1,9 @@
-import { LocalStorageService } from './local-storage.service';
 import { Injectable } from '@angular/core';
 import { v4 as uuid } from 'uuid';
 import { Observable, of } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
 import { IEvent } from '../data';
-import { filter, map, tap, switchMap } from 'rxjs/operators';
-
-const MOCK: IEvent[] = [
-  {
-    id: '98594598698',
-    dateStart: new Date(2020, 3, 20, 10, 30),
-    dateEnd: new Date(2020, 3, 20, 12, 30),
-    title: 'Test Event 1',
-    description: 'Test Event 1',
-    participants: [],
-  },
-  {
-    id: '985944702098',
-    dateStart: new Date(2020, 3, 27, 16, 30),
-    dateEnd: new Date(2020, 3, 27, 17, 0),
-    title: 'Test Event 2',
-    description: 'Test Event 2',
-    participants: [],
-  },
-];
+import { LocalStorageService } from './local-storage.service';
 
 const COLLECTION_NAME = '_events';
 

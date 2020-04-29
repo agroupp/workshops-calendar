@@ -1,10 +1,7 @@
 import {
-  ActionReducer,
   ActionReducerMap,
   createFeatureSelector,
-  MetaReducer,
-  createReducer,
-  on,
+  MetaReducer
 } from '@ngrx/store';
 import { environment } from '../../environments/environment';
 import * as fromRouter from '@ngrx/router-store';

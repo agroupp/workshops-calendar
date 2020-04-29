@@ -1,14 +1,15 @@
-<section class="grid">
+<section class="grid" *ngIf="weeks$ | async as weeks">
   <div class="week-days-row">
     <div
       class="cell"
-      *ngFor="let day of weekDays; index as i"
+      *ngFor="let day of weeks[0]; index as i"
       [ngClass]="{ 'accent-200-background': i === holiday }"
     >
-      <span>{{ day }}</span>
+      <span>{{ day.date | date: 'EEE' }}</span>
     </div>
   </div>
-  <div class="row" *ngFor="let week of weeks$ | async; index as weekIndex">
+
+  <div class="row" *ngFor="let week of weeks">
     <div class="cell" *ngFor="let day of week; index as i">
       <tr-cell
         [day]="day"

@@ -9,7 +9,7 @@
   </div>
   <div class="name">{{ participant.name }}</div>
   <div class="controls" *ngIf="showDelete">
-    <button mat-icon-button matTooltip="Remove" (click)="onRemoveClick()">
+    <button mat-icon-button matTooltip="Remove" i18n-matTooltip="Participant Item|Remove@@ParticipantItemRemove" (click)="onRemoveClick()">
       <mat-icon>close</mat-icon>
     </button>
   </div>

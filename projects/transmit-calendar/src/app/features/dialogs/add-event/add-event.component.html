@@ -1,6 +1,6 @@
 <header>
   <div class="dialog-controls">
-    <button mat-icon-button mat-dialog-close matTooltip="close">
+    <button mat-icon-button mat-dialog-close i18n-matTooltip="Add Event Dialog|Close@@AddEventDialogClose" matTooltip="close">
       <mat-icon>close</mat-icon>
     </button>
   </div>
@@ -12,6 +12,7 @@
         type="text"
         matInput
         placeholder="Add title"
+        i18n-placeholder="Add Event Dialog|AddTitle@@AddEventDialogAddTitle"
         [formControl]="titleCtrl"
         cdkFocusInitial
       />
@@ -55,6 +56,7 @@
         <input
           type="text"
           placeholder="Add participants"
+          i18n-placeholder="Add Event Dialog|AddParticipants@@AddEventDialogAddParticipants"
           (blur)="addParticipant()"
           (keypress)="addParticipantEnterPressed($event)"
           [formControl]="addParticipantCtrl"
@@ -77,6 +79,7 @@
       [formControl]="descriptionCtrl"
       class="description-input"
       placeholder="Add description"
+      i18n-placeholder="Add Event Dialog|AddDescription@@AddEventDialogAddDescription"
     ></textarea>
   </div>
 </mat-dialog-content>

@@ -11,6 +11,7 @@
         class="today-button"
         matTooltip="{{ today | date }}"
         (click)="onTodayClick()"
+        i18n="main layout|Today button@@todayButton"
       >
         Today
       </button>
@@ -19,6 +20,7 @@
         matTooltip="Previous month"
         (click)="onPrevMonthClick()"
         [disabled]="!currentMonth"
+        i18n-matTooltip="main layout|Previous month button@@PreviousMonthButton"
       >
         <mat-icon>keyboard_arrow_left</mat-icon>
       </button>
@@ -27,6 +29,7 @@
         matTooltip="Next month"
         (click)="onNextMonthClick()"
         [disabled]="!currentMonth"
+        i18n-matTooltip="main layout|Next month button@@NextMonthButton"
       >
         <mat-icon>keyboard_arrow_right</mat-icon>
       </button>
@@ -42,7 +45,7 @@
       <div class="month-year"></div>
     </ng-template>
     <div class="spacer"></div>
-    <div class="tools"></div>
+    <div class="tools"><!-- For future use as controls panel --></div>
   </mat-toolbar>
   <div class="content">
     <router-outlet></router-outlet>

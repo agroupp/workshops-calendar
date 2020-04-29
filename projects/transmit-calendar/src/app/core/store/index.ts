@@ -1,7 +1,5 @@
 import {
-  ActionReducer,
   ActionReducerMap,
-  createFeatureSelector,
   createSelector,
   MetaReducer,
 } from '@ngrx/store';
@@ -11,7 +9,10 @@ import { Params } from '@angular/router';
 
 export const coreStateFeatureKey = 'coreState';
 
-export interface CoreState {}
+// tslint:disable-next-line:no-empty-interface
+export interface CoreState {
+  // For future use
+}
 
 export const reducers: ActionReducerMap<CoreState> = {};
 

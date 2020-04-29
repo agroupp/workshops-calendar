@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Router } from '@angular/router';
-import { map, tap } from 'rxjs/operators';
-import * as coreActions from '../../store/core.actions';
+import { tap } from 'rxjs/operators';
 import { selectCurrentMonth } from '../../store';
 import { Observable } from 'rxjs';
 

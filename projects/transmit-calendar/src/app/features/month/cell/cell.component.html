@@ -2,8 +2,6 @@
   class="wrapper"
   (mouseover)="isHover = true"
   (mouseleave)="isHover = false"
-  #wrapper
-  [ngStyle]="{ maxHeight: cellHeightString }"
   [ngClass]="{ 'accent-200-background': isHoliday }"
 >
   <section
@@ -15,7 +13,7 @@
       <span *ngIf="day.date.getDate() === 1">{{ day.date | date: 'MMM' }}</span>
     </button>
   </section>
-  <section class="events" #eventsSection>
+  <section class="events">
     <ul>
       <li
         *ngFor="let event of day.events; index as i"
@@ -36,7 +34,8 @@
       class="hidden-events-list"
       (click)="showEventsListDialog()"
     >
-      {{ day.events.length - 2 }} more...
+      {{ day.events.length - 2 }}
+      <span i18n="Cell Component|More...@@MoreThreeDots">more...</span>
     </div>
   </section>
   <div class="add-button" *ngIf="isHover" (click)="addEvent()">

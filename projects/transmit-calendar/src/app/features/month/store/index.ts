@@ -1,41 +1,25 @@
 import {
-  ActionReducer,
-  ActionReducerMap,
   createFeatureSelector,
-  createSelector,
   MetaReducer,
-  createReducer,
-  on,
+  ActionReducerMap
 } from '@ngrx/store';
 import { environment } from '../../../../environments/environment';
-import * as monthActions from './month.actions';
 import * as core from '../../../core/store';
 import * as rootEventsSelectors from '../../../reducers/events.selectors';
 
 export const monthStateFeatureKey = 'monthState';
 
+// tslint:disable-next-line:no-empty-interface
 export interface MonthState {
-  current: Date;
+  // For future use
 }
 
-export const initialState: MonthState = {
-  current: new Date(
-    Date.UTC(new Date().getUTCFullYear(), new Date().getUTCMonth(), 1)
-  ),
-};
+export const reducers: ActionReducerMap<MonthState> = {};
 
-export const reducers = createReducer(
-  initialState,
-  on(monthActions.setCurrentMonth, (state, action) => ({
-    ...state,
-    current: action.currentMonth,
-  }))
-);
-
+// Selectors
 export const selectMonthFeature = createFeatureSelector(monthStateFeatureKey);
 export const selectCurrentMonth = core.selectCurrentMonth;
 export const selectCurrentEvents = rootEventsSelectors.selectCurrentEvents;
-// export const selectEventsOnDate = rootEventsSelectors.selectEventsOnDate;
 
 export const metaReducers: MetaReducer<MonthState>[] = !environment.production
   ? []

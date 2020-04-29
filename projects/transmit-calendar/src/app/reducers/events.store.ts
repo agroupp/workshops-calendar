@@ -1,6 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
 import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
-import { v4 as uuid } from 'uuid';
 import * as fromEventsActions from './events.actions';
 import { IEvent } from '../data';
 

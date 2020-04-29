@@ -1,10 +1,11 @@
 import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { DateAdapter, ITime } from '../../../date-adapter';
-import { IEvent, IParticipant } from '../../../data';
 import { map, distinctUntilChanged } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+
+import { DateAdapter, ITime } from '../../../date-adapter';
+import { IEvent, IParticipant } from '../../../data';
 
 @Component({
   selector: 'tr-add-event',

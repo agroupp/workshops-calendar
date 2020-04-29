@@ -2,9 +2,7 @@ import {
   Component,
   OnInit,
   OnChanges,
-  Input,
-  ViewChild,
-  ElementRef,
+  Input
 } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { MatDialog } from '@angular/material/dialog';
@@ -35,16 +33,8 @@ export class CellComponent implements OnInit, OnChanges {
 
   isHover = false;
 
-  events: IEvent[] = [];
-  cellHeightString = '';
-  cellHeight = 0;
-  showEventsList = true;
-
   dialogWidth = 450;
   dialogHeight = 350;
-
-  @ViewChild('wrapper') private wrapperRef: ElementRef;
-  @ViewChild('eventsSection') private eventsRef: ElementRef;
 
   constructor(
     private dialog: MatDialog,
